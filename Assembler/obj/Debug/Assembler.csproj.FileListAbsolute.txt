@@ -13,3 +13,17 @@ C:\Users\zypho\Google Drive\Spring 2018\Comp Architecture\Assembler\Assembler\As
 C:\Users\zypho\Google Drive\Spring 2018\Comp Architecture\Assembler\Assembler\Assembler\obj\Debug\Assembler.csproj.CoreCompileInputs.cache
 C:\Users\zypho\Google Drive\Spring 2018\Comp Architecture\Assembler\Assembler\Assembler\obj\Debug\Assembler.exe
 C:\Users\zypho\Google Drive\Spring 2018\Comp Architecture\Assembler\Assembler\Assembler\obj\Debug\Assembler.pdb
+C:\Users\mpullins\Documents\Senior Design\Assembler\Assembler\bin\Debug\Assembler.exe.config
+C:\Users\mpullins\Documents\Senior Design\Assembler\Assembler\bin\Debug\Assembler.exe
+C:\Users\mpullins\Documents\Senior Design\Assembler\Assembler\bin\Debug\Assembler.pdb
+C:\Users\mpullins\Documents\Senior Design\Assembler\Assembler\obj\Debug\Assembler.csprojResolveAssemblyReference.cache
+C:\Users\mpullins\Documents\Senior Design\Assembler\Assembler\obj\Debug\MainWindow.g.cs
+C:\Users\mpullins\Documents\Senior Design\Assembler\Assembler\obj\Debug\App.g.cs
+C:\Users\mpullins\Documents\Senior Design\Assembler\Assembler\obj\Debug\Assembler_MarkupCompile.cache
+C:\Users\mpullins\Documents\Senior Design\Assembler\Assembler\obj\Debug\Assembler_MarkupCompile.lref
+C:\Users\mpullins\Documents\Senior Design\Assembler\Assembler\obj\Debug\MainWindow.baml
+C:\Users\mpullins\Documents\Senior Design\Assembler\Assembler\obj\Debug\Assembler.g.resources
+C:\Users\mpullins\Documents\Senior Design\Assembler\Assembler\obj\Debug\Assembler.Properties.Resources.resources
+C:\Users\mpullins\Documents\Senior Design\Assembler\Assembler\obj\Debug\Assembler.csproj.GenerateResource.Cache
+C:\Users\mpullins\Documents\Senior Design\Assembler\Assembler\obj\Debug\Assembler.exe
+C:\Users\mpullins\Documents\Senior Design\Assembler\Assembler\obj\Debug\Assembler.pdb

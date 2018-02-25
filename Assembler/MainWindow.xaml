@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assembler"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="805">
+        Title="MainWindow" Height="650" Width="805" MinHeight="650" MinWidth="805">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -13,13 +13,23 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
+            <RowDefinition Height="70" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="1" x:Name="Assembler" Content="Assembler" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="40" />
-        <TextBox Grid.Column="0" Grid.Row="0" x:Name="file" Width="135" Height="20" MinWidth="135" MaxWidth="135" HorizontalAlignment="Left" IsReadOnly="True" Margin="30,0,0,0"/>
+        <Border Grid.Row="1" Grid.Column="0" BorderBrush="#FF1B6BF7" BorderThickness="2" CornerRadius="8" />
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="#FF1B6BF7" BorderThickness="2" CornerRadius="8" />
+        <Border Grid.Row="1" Grid.Column="2" BorderBrush="#FF1B6BF7" BorderThickness="2" CornerRadius="8" />
+        <Label Grid.Row="0" Grid.Column="1" x:Name="Assembler" Content="Assembler" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="30" />
+        <Label Grid.Row="0" Grid.Column="1" x:Name="programmer" Content="By: Spencer Pullins" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="20" />
+        <TextBox Grid.Column="0" Grid.Row="0" x:Name="FilePath" Width="135" Height="20" MinWidth="135" MaxWidth="135" HorizontalAlignment="Left" IsReadOnly="True" Margin="30,0,0,0"/>
         <Button Grid.Column="0" Grid.Row="0" x:Name="OpenFile" Click="OpenFile_Click" Content="Open File" Width="60" Height="20" HorizontalAlignment="Right" Margin="0,0,30,0"/>
+
+        <Label Grid.Row="1" Grid.Column="0" x:Name="ASMFile" Content="ASM File" VerticalAlignment="Top" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,0,1"/>
+
+        <ScrollViewer Grid.Row="1" Grid.Column="0" Width="250" Height="450" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,30,0,0" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <TextBlock xml:space="preserve" Background="#FFBBBBBB" x:Name="LoadedFile" FontSize="12.5" FontFamily="Courier New" />
+        </ScrollViewer>
 
     </Grid>
 </Window>
