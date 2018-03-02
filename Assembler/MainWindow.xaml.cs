@@ -24,7 +24,7 @@ namespace Assembler
     {
         string curFile;
         int counter = 1;
-        Dictionary<string, int> symTable = new Dictionary<string, int>();
+        Dictionary<string, int> symTable;
         Dictionary<string, string> opcode = new Dictionary<string, string>()
         {
             {"AND", "0000" }, {"ADD", "1000" }, {"LDA", "2000" }, {"STA", "3000" }, {"BUN", "4000" },
@@ -57,12 +57,18 @@ namespace Assembler
                 FilePath.Text = openFileDialog.FileName;
                 curFile = System.IO.File.ReadAllText(openFileDialog.FileName, Encoding.UTF8);
                 LoadedFile.Text = curFile;
+                AssembleFile.Text = "";
+                SymbolTable.Text = "";
                 AssembleButton.IsEnabled = true;
+
             }
         }
 
         private void Assemble_Click(object sender, RoutedEventArgs e)
         {
+            symTable = new Dictionary<string, int>();
+            AssembleFile.Text = "Address \t Memory \n";
+            SymbolTable.Text = "Label \t Memory \n";
             //first pass
             using (StringReader reader = new StringReader(curFile))
             {
@@ -82,12 +88,18 @@ namespace Assembler
                     if(line[3] == ',')
                     {
                         symTable.Add(line.Substring(0, 3), counter);
-                        SymbolTable.Text += line.Substring(0, 3) + " " + counter.ToString("X") + "\n"; //X is for hex
+                        SymbolTable.Text += line.Substring(0, 3) + "\t " + counter.ToString("X") + "\n"; //X is for hex
                     }
                     counter++;
 
                 }
             }
+            using (File.Create("table.sym")) ;
+            using (var tw = new StreamWriter("table.sym", true))
+            {
+                tw.WriteLine(SymbolTable.Text);
+            }
+
             //reset counter
             counter = 1;
             //second pass
@@ -97,6 +109,8 @@ namespace Assembler
                 while ((line = reader.ReadLine()) != null)
                 {
                     bool memRef = false;
+
+                    if (line.Substring(5, 3) == "END") { break; }
                     if (line.Substring(5, 3) == "ORG")
                     {
                         //May have to account for varying number of memory lengths (i.e. 100 10 1) but won't worry about this for now
@@ -128,6 +142,7 @@ namespace Assembler
                             //get operand
                             string num;
                             if (memRef) { num = line.Substring(9).Split('I')[0].Trim(); }
+                            else if (line.Length < 9) { num = ""; }
                             else { num = line.Substring(9).Split('/')[0].Trim(); }
 
                             if (symTable.ContainsKey(num))
@@ -153,7 +168,7 @@ namespace Assembler
 
                             machineCode = Padding((operand | opcodeInt).ToString("X"));
 
-                            AssembleFile.Text += counter.ToString("X") + ": " + machineCode + "\n";
+                            AssembleFile.Text += counter.ToString("X") + ": \t\t " + machineCode + "\n";
                         }  
 
                     }
@@ -161,6 +176,11 @@ namespace Assembler
                 }
             }
 
+            using (File.Create("assembler.bin")) ;
+            using (var tw = new StreamWriter("assembler.bin", true))
+            {
+                tw.WriteLine(AssembleFile.Text);
+            }
 
         }
 

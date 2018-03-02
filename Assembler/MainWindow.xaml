@@ -18,8 +18,8 @@
         </Grid.RowDefinitions>
 
         <Border Grid.Row="1" Grid.Column="0" BorderBrush="#FF1B6BF7" BorderThickness="2" CornerRadius="8" />
-        <Border Grid.Row="1" Grid.Column="1" BorderBrush="#FF1B6BF7" BorderThickness="2" CornerRadius="8" />
-        <Border Grid.Row="1" Grid.Column="2" BorderBrush="#FF1B6BF7" BorderThickness="2" CornerRadius="8" />
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="#FF1B6BF7" BorderThickness="2" CornerRadius="8" />
+        <!--<Border Grid.Row="1" Grid.Column="2" BorderBrush="#FF1B6BF7" BorderThickness="2" CornerRadius="8" />-->
         <Label Grid.Row="0" Grid.Column="1" x:Name="Assembler" Content="Assembler" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="30" />
         <Label Grid.Row="0" Grid.Column="1" x:Name="programmer" Content="By: Spencer Pullins" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="20" />
         <TextBox Grid.Column="0" Grid.Row="0" x:Name="FilePath" Width="135" Height="20" MinWidth="135" MaxWidth="135" HorizontalAlignment="Left" IsReadOnly="True" Margin="30,0,0,0"/>
@@ -31,17 +31,17 @@
             <TextBlock  x:Name="LoadedFile" xml:space="preserve" Background="#FFBBBBBB" FontSize="12.5" FontFamily="Courier New" />
         </ScrollViewer>
 
-        <Label Grid.Row="1" Grid.Column="1" x:Name="SYMTable" Content="Symbol Table" VerticalAlignment="Top" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,0,1"/>
+        <Label Grid.Row="1" Grid.Column="2" x:Name="SYMTable" Content="Symbol Table" VerticalAlignment="Top" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,0,1"/>
 
+        <ScrollViewer Grid.Row="1" Grid.Column="2" Width="240" Height="250" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,30,0,0" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <TextBlock xml:space="preserve" Background="#FFE2E9FF" x:Name="SymbolTable" FontSize="12.5" FontFamily="Courier New" />
+        </ScrollViewer>
+
+        <Label Grid.Row="1" Grid.Column="1" x:Name="ASMFile" Content="Assembled File" VerticalAlignment="Top" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,0,1"/>
         <ScrollViewer Grid.Row="1" Grid.Column="1" Width="250" Height="450" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,30,0,0" ScrollViewer.HorizontalScrollBarVisibility="Auto">
-            <TextBlock xml:space="preserve" Background="#FFBBBBBB" x:Name="SymbolTable" FontSize="12.5" FontFamily="Courier New" />
+            <TextBlock xml:space="preserve" Background="#FFE2E9FF" x:Name="AssembleFile" FontSize="12.5" FontFamily="Courier New" />
         </ScrollViewer>
 
-        <Label Grid.Row="1" Grid.Column="2" x:Name="ASMFile" Content="Assembled File" VerticalAlignment="Top" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="0,0,0,1"/>
-        <ScrollViewer Grid.Row="1" Grid.Column="2" Width="250" Height="450" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,30,0,0" ScrollViewer.HorizontalScrollBarVisibility="Auto">
-            <TextBlock xml:space="preserve" Background="#FFBBBBBB" x:Name="AssembleFile" FontSize="12.5" FontFamily="Courier New" />
-        </ScrollViewer>
-
-        <Button Grid.Column="1" Grid.Row="1" x:Name="AssembleButton" Click="Assemble_Click" Content="Assemble" Width="60" Height="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20" IsEnabled="False"/>
+        <Button Grid.Column="2" Grid.Row="1" x:Name="AssembleButton" Click="Assemble_Click" Content="Assemble" Width="60" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,90,0,20" IsEnabled="False"/>
     </Grid>
 </Window>
