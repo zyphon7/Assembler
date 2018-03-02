@@ -69,6 +69,7 @@ namespace Assembler
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
+                    if(line.Substring(5, 3) == "END") { break; }
                     
                     if(line.Substring(5,3) == "ORG")
                     {
